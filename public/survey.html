@@ -1,17 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <title>Friend Finder</title>
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<div class="form-group">
-    <label for="exampleFormControlSelect1">Example select</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="row">
+      <h1> Survey Questions</h1>
+      <br>
+      <h4>Name</h4>
+      <input type="text" class="form-control" id="name" placeholder="Name">
+      <h4>Link to Your Photo</h4>
+      <input type="text" class="form-control" id="photo" placeholder="Link to Photo">
+    </div>
+  </div>
+
+  <div class="col-lg-8">
+    <div class="form-group">
+      <label for="Q1">Question 1: I love vacations and exploring different cultures.</label>
+      <select class="form-control" id="Q1">
+      <option>1 (Strongly Disagree)</option>
       <option>2</option>
       <option>3</option>
       <option>4</option>
-      <option>5</option>
+      <option>5 (Strongly Agree)</option>
     </select>
+    </div>
+
+    <div class="form-group">
+      <label for="Q2">Question 2: I hate people who express strong opinions not backed up by facts.</label>
+      <select class="form-control" id="Q2">
+      <option>1 (Strongly Disagree)</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5 (Strongly Agree)</option>
+    </select>
+    </div>
+
+    <div class="form-group">
+      <label for="Q3">Question 3: I make decisions based on facts and not feelings.</label>
+      <select class="form-control" id="Q3">
+      <option>1 (Strongly Disagree)</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5 (Strongly Agree)</option>
+    </select>
+    </div>
+
+    <div class="form-group">
+      <label for="Q4">Question 4: I like slow paced and relaxing environments and hate stress. </label>
+      <select class="form-control" id="Q4">
+      <option>1 (Strongly Disagree)</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5 (Strongly Agree)</option>
+    </select>
+    </div>
+
+    <div class="form-group">
+      <label for="Q5">Question 5: I love going out to eat at nice restaurants. </label>
+      <select class="form-control" id="Q5">
+      <option>1 (Strongly Disagree)</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5 (Strongly Agree)</option>
+    </select>
+    </div>
+
+    <div class="form-group">
+      <label for="Q6">Question 6: I love to cook at home. </label>
+      <select class="form-control" id="Q6">
+      <option>1 (Strongly Disagree)</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5 (Strongly Agree)</option>
+    </select>
+    </div>
+
+    <div class="form-group">
+      <label for="Q7">Question 7: I don't believe money can buy happiness. </label>
+      <select class="form-control" id="Q7">
+      <option>1 (Strongly Disagree)</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5 (Strongly Agree)</option>
+    </select>
+    </div>
+
+    <div class="form-group">
+      <label for="Q8">Question 8: I love the non-stop activities of city life. </label>
+      <select class="form-control" id="Q8">
+      <option>1 (Strongly Disagree)</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5 (Strongly Agree)</option>
+    </select>
+    </div>
+
+    <div class="form-group">
+      <label for="Q9">Question 9: I love hiking and other outdoor activities. </label>
+      <select class="form-control" id="Q9">
+      <option>1 (Strongly Disagree)</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5 (Strongly Agree)</option>
+    </select>
+    </div>
+
+    <div class="form-group">
+      <label for="Q10">Question 10: I feel energized when I spend time with people. </label>
+      <select class="form-control" id="Q10">
+      <option>1 (Strongly Disagree)</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5 (Strongly Agree)</option>
+    </select>
+    </div>
+
+    <div class="text-left">
+      <button type="submit" class="btn btn-primary btn-md" id="submit-btn"><span class="glyphicon glyphicon"></span>Submit</button>
+    </div>
+    <br>
+    <h3>Get Excited to Meet Your Soulmate!</h3>
   </div>
-  
- 
+
+  <script type="text/javascript">
+    $("#submit-btn").on("click", function(event) {
+      event.preventDefault();
+      var newPerson = {
+        name: $("#name").val().trim(),
+        photo: $("#photo").val().trim(),
+        //need to make this into an array somehow...
+        scores: $("#scores").val().trim()
+      };
+
+      $.post("/api/new", newPerson)
+        .done(function(data) {
+          console.log(data);
+          alert("Adding Your Information to Our Database and Finding You A Match...");
+        });
+    });
+  </script>
+
+</body>
+
+</html>
+
+
 <!-- additional form items -->
 <!-- onclick of "submit" button , create an object of name, photo, and array 
 push the answers into the array. -->
