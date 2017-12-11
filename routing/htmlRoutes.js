@@ -10,8 +10,6 @@ function htmlRoutes(app) {
         return response.sendFile(path.join(__dirname, "../public/home.html"));
     });
 
-
-
 }
 
 module.exports = htmlRoutes;
@@ -26,7 +24,6 @@ module.exports = htmlRoutes;
 //GET route to /survey - goes to survey page
 //default goes to home.html
 //put in server.js?
-
 
 
 // app.post("../public/home", function(request, reponse) {
