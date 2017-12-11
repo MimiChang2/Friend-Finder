@@ -146,14 +146,17 @@
   <script type="text/javascript">
     $("#submit-btn").on("click", function(event) {
       event.preventDefault();
+      console.log("i got clicked");
       var newPerson = {
         name: $("#name").val().trim(),
         photo: $("#photo").val().trim(),
         //need to make this into an array somehow...
-        scores: $("#scores").val().trim()
+        scores: [$("#Q1").val(),
+          $("#Q2").val()
+        ]
       };
 
-      $.post("/api/new", newPerson)
+      $.post("/api/friends", newPerson)
         .done(function(data) {
           console.log(data);
           alert("Adding Your Information to Our Database and Finding You A Match...");

@@ -18,15 +18,15 @@
       <h1>Friend Finder</h1>
       <h3>Answer some questions to find your soulmate or new best friend!</h3>
       <hr>
-      <a href="/add"><button type="button" class="btn btn-info btn-lg" id= "getstarted"><span class="glyphicon glyphicon"></span> Get Started!</button></a>
+      <a href="/survey"><button type="button" class="btn btn-info btn-lg" id="getstarted"><span class="glyphicon glyphicon"></span> Get Started!</button></a>
     </div>
     <div class="row">
 
       <div class="col-lg-12">
 
-        <a href="apiRoutes"> API Friends List</a>
+        <p><a href="/api/friends"> API Friends List</a></p>
 
-        <a href="githubrepo"> Git Hub Repo Anchor Tag</a>
+        <p><a href="githubrepo"> Git Hub Repo Anchor Tag</a></p>
 
         <!-- api friends link in apiRoutes and github repo //github repo is an anchor tag -->
 
@@ -35,9 +35,12 @@
   </div>
 
   <script type="text/javascript">
+    //go to survey page
+
     $("#getstarted").on("click", function(event) {
-      event.preventDefault();
-      //go to survey page
+      //event.preventDefault();
+      $.get("/survey")
+
     });
   </script>
 </body>
