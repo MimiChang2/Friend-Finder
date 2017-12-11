@@ -27,112 +27,115 @@
 
   <div class="col-lg-8">
     <div class="form-group">
+      <br>
+      <p>On a scale of 1-5, 1 being Strongly Disagree and 5 being Strongly Agree, please choose what describes you best</p>
+      <br>
       <label for="Q1">Question 1: I love vacations and exploring different cultures.</label>
       <select class="form-control" id="Q1">
-      <option>1 (Strongly Disagree)</option>
+      <option>1</option>
       <option>2</option>
       <option>3</option>
       <option>4</option>
-      <option>5 (Strongly Agree)</option>
+      <option>5</option>
     </select>
     </div>
 
     <div class="form-group">
       <label for="Q2">Question 2: I hate people who express strong opinions not backed up by facts.</label>
       <select class="form-control" id="Q2">
-      <option>1 (Strongly Disagree)</option>
+      <option>1</option>
       <option>2</option>
       <option>3</option>
       <option>4</option>
-      <option>5 (Strongly Agree)</option>
+      <option>5</option>
     </select>
     </div>
 
     <div class="form-group">
       <label for="Q3">Question 3: I make decisions based on facts and not feelings.</label>
       <select class="form-control" id="Q3">
-      <option>1 (Strongly Disagree)</option>
+      <option>1</option>
       <option>2</option>
       <option>3</option>
       <option>4</option>
-      <option>5 (Strongly Agree)</option>
+      <option>5</option>
     </select>
     </div>
 
     <div class="form-group">
       <label for="Q4">Question 4: I like slow paced and relaxing environments and hate stress. </label>
       <select class="form-control" id="Q4">
-      <option>1 (Strongly Disagree)</option>
+      <option>1</option>
       <option>2</option>
       <option>3</option>
       <option>4</option>
-      <option>5 (Strongly Agree)</option>
+      <option>5</option>
     </select>
     </div>
 
     <div class="form-group">
       <label for="Q5">Question 5: I love going out to eat at nice restaurants. </label>
       <select class="form-control" id="Q5">
-      <option>1 (Strongly Disagree)</option>
+      <option>1</option>
       <option>2</option>
       <option>3</option>
       <option>4</option>
-      <option>5 (Strongly Agree)</option>
+      <option>5</option>
     </select>
     </div>
 
     <div class="form-group">
       <label for="Q6">Question 6: I love to cook at home. </label>
       <select class="form-control" id="Q6">
-      <option>1 (Strongly Disagree)</option>
+      <option>1</option>
       <option>2</option>
       <option>3</option>
       <option>4</option>
-      <option>5 (Strongly Agree)</option>
+      <option>5</option>
     </select>
     </div>
 
     <div class="form-group">
       <label for="Q7">Question 7: I don't believe money can buy happiness. </label>
       <select class="form-control" id="Q7">
-      <option>1 (Strongly Disagree)</option>
+      <option>1</option>
       <option>2</option>
       <option>3</option>
       <option>4</option>
-      <option>5 (Strongly Agree)</option>
+      <option>5</option>
     </select>
     </div>
 
     <div class="form-group">
       <label for="Q8">Question 8: I love the non-stop activities of city life. </label>
       <select class="form-control" id="Q8">
-      <option>1 (Strongly Disagree)</option>
+      <option>1</option>
       <option>2</option>
       <option>3</option>
       <option>4</option>
-      <option>5 (Strongly Agree)</option>
+      <option>5</option>
     </select>
     </div>
 
     <div class="form-group">
       <label for="Q9">Question 9: I love hiking and other outdoor activities. </label>
       <select class="form-control" id="Q9">
-      <option>1 (Strongly Disagree)</option>
+      <option>1</option>
       <option>2</option>
       <option>3</option>
       <option>4</option>
-      <option>5 (Strongly Agree)</option>
+      <option>5</option>
     </select>
     </div>
 
     <div class="form-group">
       <label for="Q10">Question 10: I feel energized when I spend time with people. </label>
       <select class="form-control" id="Q10">
-      <option>1 (Strongly Disagree)</option>
+      <option>1</option>
       <option>2</option>
       <option>3</option>
       <option>4</option>
-      <option>5 (Strongly Agree)</option>
+      <option>5</option>
     </select>
     </div>
 
@@ -152,7 +155,15 @@
         photo: $("#photo").val().trim(),
         //need to make this into an array somehow...
         scores: [$("#Q1").val(),
-          $("#Q2").val()
+          $("#Q2").val(),
+          $("#Q3").val(),
+          $("#Q4").val(),
+          $("#Q5").val(),
+          $("#Q6").val(),
+          $("#Q7").val(),
+          $("#Q8").val(),
+          $("#Q9").val(),
+          $("#Q10").val()
         ]
       };
 
