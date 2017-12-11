@@ -20,9 +20,39 @@ function apiRoutes(app) {
         //friends.push(objectcreated)
         friends.push(newperson);
 
-        response.json(newperson);
+        // response.json(newperson);
+
+        //compatibility logic
+        var scoreArray = newperson.score;
+        var photo = "";
+        var nameNew = "";
+        var difference = 70;
+
+        for (var i = 0; i < friends.length; i++) {
+            console.log("friends.length:" + friends.length);
+            var diff = 0;
+            for (var j = 0; j < scoreArray.length; j++) {
+                console.log("name: " + friends[i].name + "\nscoreArray.length:" + scoreArray.length);
+                diff += Math.abs(friends[i].score[j] - scoreArray[j]);
+                console.log("diff = " + diff);
+            }
+            if (diff < difference && nameNew ) {
+                difference = diff;
+                nameNew = friends[i].name;
+                photo = friends[i].photo;
+                console.log("The best match: " + nameNew + photo);
+            }
+        }
+
+        // friends.push(newperson);
+
+        response.json({
+            nameNew: nameNew,
+            photo: photo
+        });
     });
-};
+}
+
 
 module.exports = apiRoutes;
 
