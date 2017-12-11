@@ -25,7 +25,7 @@ function apiRoutes(app) {
         //compatibility logic
         var scoreArray = newperson.score;
         var photo = "";
-        var nameNew = "";
+        var nameMatch = "";
         var difference = 70;
 
         for (var i = 0; i < friends.length; i++) {
@@ -36,18 +36,18 @@ function apiRoutes(app) {
                 diff += Math.abs(friends[i].score[j] - scoreArray[j]);
                 console.log("diff = " + diff);
             }
-            if (diff < difference && nameNew ) {
+            if (diff < difference && newperson.name !== friends[i].name) {
                 difference = diff;
-                nameNew = friends[i].name;
+                nameMatch = friends[i].name;
                 photo = friends[i].photo;
-                console.log("The best match: " + nameNew + photo);
+                console.log("The best match: " + nameMatch + photo);
             }
         }
 
         // friends.push(newperson);
-
+        //this gets sent to client- this is the response body
         response.json({
-            nameNew: nameNew,
+            nameMatch: nameMatch,
             photo: photo
         });
     });

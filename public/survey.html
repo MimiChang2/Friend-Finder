@@ -140,9 +140,29 @@
     </div>
 
     <div class="text-left">
-      <button type="submit" class="btn btn-primary btn-md" id="submit-btn"><span class="glyphicon glyphicon"></span>Submit</button>
+      <button type="submit" class="btn btn-primary btn-md" id="submit-btn" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon"></span>Submit</button>
     </div>
     <br>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Your Best Match is...... </h4>
+          </div>
+          <div class="modal-body">
+            <span id="matchName">Name: </span>
+            <img src="" id="matchPhoto">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <h3>Get Excited to Meet Your Soulmate!</h3>
   </div>
 
@@ -175,7 +195,9 @@
         })
         .done(function(data) {
           console.log(data);
-          alert("Adding Your Information to Our Database and Finding You A Match..." + data.nameNew);
+          $("#matchName").text(data.nameMatch);
+          $("#matchPhoto").attr("src", data.photo)
+          //alert("Your Best Match is..." + data.nameMatch + photo);
         });
 
       // $.post("/api/friends", newPerson)
